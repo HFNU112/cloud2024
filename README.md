@@ -20,7 +20,7 @@ spring-cloud-alibaba版本说明：https://github.com/alibaba/spring-cloud-aliba
 
 #### 需求说明
 
-聚合模块工程
+> 聚合模块工程依赖配置
 
 约定
 
@@ -48,7 +48,7 @@ spring-boot-starter 3.2.0
 spring.cloud.dependencies 2023.0.0
 spring.cloud.alibaba.dependencies 2022.0.0.0-RC2
 
-基础工程搭建
+> 基础工程搭建
 
 mapper4: 生成基础的持久层代码
 
@@ -85,17 +85,78 @@ freemarker 2.3.32
 1、RestTemplate调用服务提供者API使用
 2、Get请求完成从服务消费者到服务提供者CRUD
 
-- 公共模块：抽取对外的暴漏接口、通用组件、共有工具类等 cloud_common_api
++ 公共模块：抽取对外的暴漏接口、通用组件、共有工具类等 cloud_common_api
 
 1、RestTemplate 服务调用提供者uri硬编码问题，带来维护问题。
 
+> 服务注册发现
+
+Consul: https://www.consul.io/
+
+什么是Consul: https://developer.hashicorp.com/consul/docs/intro
+
+spring-consul: https://spring.io/projects/spring-cloud-consul
+
+使用spring-consul的issue: https://github.com/spring-cloud/spring-cloud-consul
+
+spring-consul提出的bug：https://stackoverflow.com/questions/tagged/spring-cloud
+
+consul-windows.exe 1.17.1
+
+> 前端工程
+
+vuejs: https://vuejs.org/guide/quick-start.html
+
+axios-http: https://www.axios-http.cn/docs/example
+
+```json
+npm init vue@latest
 
 
-#### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+```
+
+
+
+
+#### 报错说明
+
+1. 错误现象：Class com.sun.tools.javac.tree.JCTree$JCImport does not have member field 'com.sun.tools.javac.tree.JCTree qualid'
+
+原因：Spring Boot3.2.0版本与你的JDK17版本需要一一对应兼容，同时maven编译配置版本17一一对应，运行时的版本jdk17一一对应，在service --> edit configuration --> build and run（中一一对应jdk17）
+
+2.错误现象：springboot3.2.0、mybatisplus3.5.3代码生成器后的代码结构启动报错Invalid value type for attribute 'factoryBeanObjectType': java.lang.String
+
+原因：springboot3.2.0适配mybatisplus版本依赖坐标
+
+```xml
+<!-- mybatis-plus-boot-starter -->
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>3.5.4</version>
+</dependency>
+
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-generator</artifactId>
+    <version>3.5.4</version>
+</dependency>
+
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis-spring</artifactId>
+    <version>3.0.3</version>
+</dependency>
+
+<!-- freemarker -->
+<dependency>
+    <groupId>org.freemarker</groupId>
+    <artifactId>freemarker</artifactId>
+    <version>2.3.32</version>
+</dependency>
+```
+
 
 #### 参与贡献
 

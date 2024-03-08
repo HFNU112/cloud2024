@@ -21,6 +21,7 @@ import java.util.List;
  * @since 2024-03-08
  */
 @Tag(name = "支付服务模块", description = "支付服务CRUD")
+@CrossOrigin // 跨域解决方法
 @RestController
 @RequestMapping("/provider/pay")
 public class PayController {

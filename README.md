@@ -109,10 +109,16 @@ vuejs: https://vuejs.org/guide/quick-start.html
 
 axios-http: https://www.axios-http.cn/docs/example
 
+vite: https://cn.vitejs.dev/
+
+vite创建vue工程
+
 ```json
-npm init vue@latest
+创建
+npm create vue@latest
 
-
+运行
+npm run dev
 
 ```
 

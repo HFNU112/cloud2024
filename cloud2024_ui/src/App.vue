@@ -12,6 +12,12 @@
   import {ref} from 'vue';
   // 调用ref函数，定义响应式函数
   const message = ref('南京')
+
+  // 导入Api.vue文件
+  import ApiVue from './Api.vue';
+
+  // 导入pay.vue文件
+  import PayVue from './pay.vue';
 </script>
 
 <template>
@@ -20,11 +26,17 @@
 
     <div class="wrapper">
       <HelloWorld msg="You did it!"/>
-      <hr>
-      <h1>欢迎页</h1>
-      <br>
-      <h1> {{ message }}</h1>
+<!--      <br>-->
+<!--      <h1>欢迎页</h1>-->
+<!--      <br>-->
+<!--      <h1> {{ message }}</h1>-->
     </div>
+    <br>
+  <!--  声明文件  -->
+<!--    <ApiVue/>-->
+
+    <PayVue/>
+
   </header>
 
   <main>

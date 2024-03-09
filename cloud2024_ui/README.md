@@ -21,10 +21,18 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
+## 前端工程资料
+
+![vuejs](https://vuejs.org/guide/quick-start.html)
+
+![axios-http](https://www.axios-http.cn/docs/example)
+
+![vite](https://cn.vitejs.dev/)
+
 ## Project Setup
 
-```sh
-npm install
+```json
+npm create vue@latest
 ```
 
 ### Compile and Hot-Reload for Development
@@ -37,4 +45,35 @@ npm run dev
 
 ```sh
 npm run build
+```
+
+### 异步请求axios
+
+````json
+npm install axios
+````
+
+### element-plus组件
+
+![element-plus](https://element-plus.org/zh-CN/component/overview.html)
+
+1、下载element-plus依赖
+
+```json
+npm install element-plus --save
+```
+
+2、引入element-plus依赖
+
+```json
+// main.ts
+import { createApp } from 'vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.use(ElementPlus)
+app.mount('#app')
 ```

@@ -1,0 +1,7 @@
+{
+  "name": "cloud2024",
+  "version": "1.0.0",
+  "devDependencies": {
+    "axios": "^1.6.7"
+  }
+}

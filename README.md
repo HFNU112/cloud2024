@@ -103,24 +103,8 @@ spring-consul提出的bug：https://stackoverflow.com/questions/tagged/spring-cl
 
 consul-windows.exe 1.17.1
 
-> 前端工程
 
-vuejs: https://vuejs.org/guide/quick-start.html
 
-axios-http: https://www.axios-http.cn/docs/example
-
-vite: https://cn.vitejs.dev/
-
-vite创建vue工程
-
-```json
-创建
-npm create vue@latest
-
-运行
-npm run dev
-
-```
 
 
 

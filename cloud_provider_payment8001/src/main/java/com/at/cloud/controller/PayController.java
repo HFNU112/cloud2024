@@ -62,4 +62,10 @@ public class PayController {
     public List<Pay> getAll(){
         return payService.getAll();
     }
+
+    @Operation(summary = "条件查询", description = "查询指定条件的支付信息")
+    @PostMapping("/selectByCondition")
+    public List<Pay> getPayByCondition(@RequestBody @Parameter PayDTO payDTO){
+        return payService.getPayByCondition(payDTO);
+    }
 }

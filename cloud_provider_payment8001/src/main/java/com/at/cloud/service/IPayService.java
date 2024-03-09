@@ -1,6 +1,7 @@
 package com.at.cloud.service;
 
 import com.at.cloud.entities.Pay;
+import com.at.cloud.entities.dto.PayDTO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
@@ -22,5 +23,7 @@ public interface IPayService extends IService<Pay> {
     int updatePay(Pay pay);
 
     List<Pay> getAll();
+
+    List<Pay> getPayByCondition(PayDTO payDTO);
 
 }

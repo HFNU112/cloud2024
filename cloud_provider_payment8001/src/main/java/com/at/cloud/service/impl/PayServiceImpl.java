@@ -1,8 +1,10 @@
 package com.at.cloud.service.impl;
 
 import com.at.cloud.entities.Pay;
+import com.at.cloud.entities.dto.PayDTO;
 import com.at.cloud.mapper.PayMapper;
 import com.at.cloud.service.IPayService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -41,5 +43,12 @@ public class PayServiceImpl extends ServiceImpl<PayMapper, Pay> implements IPayS
     @Override
     public List<Pay> getAll() {
         return payMapper.selectList(null);
+    }
+
+    @Override
+    public List<Pay> getPayByCondition(PayDTO payDTO) {
+        QueryWrapper<Pay> wrapper = new QueryWrapper<>();
+        wrapper.eq("pay_no", payDTO.getPayNo());
+        return payMapper.selectList(wrapper);
     }
 }

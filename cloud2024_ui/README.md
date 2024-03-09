@@ -19,15 +19,15 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 ## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+See [Vite Configuration Reference] https://vitejs.dev/config/)
 
 ## 前端工程资料
 
-![vuejs](https://vuejs.org/guide/quick-start.html)
+![vuejs] https://vuejs.org/guide/quick-start.html
 
-![axios-http](https://www.axios-http.cn/docs/example)
+![axios-http] https://www.axios-http.cn/docs/example
 
-![vite](https://cn.vitejs.dev/)
+![vite] https://cn.vitejs.dev/
 
 ## Project Setup
 
@@ -55,7 +55,7 @@ npm install axios
 
 ### element-plus组件
 
-![element-plus](https://element-plus.org/zh-CN/component/overview.html)
+![element-plus] https://element-plus.org/zh-CN/component/overview.html
 
 1、下载element-plus依赖
 

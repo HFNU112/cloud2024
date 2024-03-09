@@ -9,31 +9,34 @@
 <!--</script>-->
 
 <script setup>
-  import {ref} from 'vue';
-  // 调用ref函数，定义响应式函数
-  const message = ref('南京')
+import {ref} from 'vue';
+// 调用ref函数，定义响应式函数
+const message = ref('南京')
 
-  // 导入Api.vue文件
-  import ApiVue from './Api.vue';
+// 导入Api.vue文件
+// import ApiVue from './Api.vue';
 
-  // 导入pay.vue文件
-  import PayVue from './pay.vue';
+// 导入pay.vue文件
+import PayVue from './pay.vue';
+
+import PayVue from './vue/pay.vue';
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>
-
+    <div>
+      <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>
+    </div>
     <div class="wrapper">
       <HelloWorld msg="You did it!"/>
-<!--      <br>-->
-<!--      <h1>欢迎页</h1>-->
-<!--      <br>-->
-<!--      <h1> {{ message }}</h1>-->
+      <!--      <br>-->
+      <!--      <h1>欢迎页</h1>-->
+      <!--      <br>-->
+      <!--      <h1> {{ message }}</h1>-->
     </div>
     <br>
-  <!--  声明文件  -->
-<!--    <ApiVue/>-->
+    <!--  声明文件  -->
+    <!--    <ApiVue/>-->
 
     <PayVue/>
 

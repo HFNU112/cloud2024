@@ -1,6 +1,7 @@
 package com.at.cloud.controller;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.at.cloud.common.ResultData;
 import com.at.cloud.entities.Pay;
 import com.at.cloud.entities.dto.PayDTO;
 import com.at.cloud.service.IPayService;
@@ -31,36 +32,39 @@ public class PayController {
 
     @Operation(tags = "新增", description = "新增支付")
     @PostMapping("/add")
-    public String addPay(@RequestBody @Parameter Pay pay){
+    public ResultData<String> addPay(@RequestBody @Parameter Pay pay){
         int row = payService.addPay(pay);
-        return "新增成功，受影响行数：" + row;
+        return ResultData.success("新增成功，受影响行数：" + row);
     }
 
     @Operation(tags = "删除", description = "删除支付")
     @DeleteMapping("/delete/{id}")
-    public Integer deletePay(@PathVariable("id") @Parameter Long id){
-        return payService.deletePay(id);
+    public ResultData<Integer> deletePay(@PathVariable("id") @Parameter Long id){
+        Integer i = payService.deletePay(id);
+        return ResultData.success(i);
     }
 
     @Operation(summary = "修改", description = "修改支付")
     @PutMapping("/update")
-    public String updatePay(@RequestBody @Parameter PayDTO payDTO){
+    public ResultData<String> updatePay(@RequestBody @Parameter PayDTO payDTO){
         Pay pay = new Pay();
         BeanUtil.copyProperties(payDTO,  pay);
         int row = payService.updatePay(pay);
-        return "修改成功，受影响行数：" + row;
+        return ResultData.success("修改成功，受影响行数：" + row);
     }
 
     @Operation(summary = "查询单个", description = "查询单条支付信息")
     @GetMapping("/selectOne/{id}")
-    public Pay getById(@PathVariable("id") @Parameter Long id){
-        return payService.getById(id);
+    public ResultData<Pay> getById(@PathVariable("id") @Parameter Long id){
+        Pay pay = payService.getById(id);
+        return ResultData.success(pay);
     }
 
     @Operation(tags = "查询所有", description = "查询所有支付")
     @GetMapping("/selectAll")
-    public List<Pay> getAll(){
-        return payService.getAll();
+    public ResultData<List<Pay>> getAll(){
+        List<Pay> payList = payService.getAll();
+        return ResultData.success(payList);
     }
 
     @Operation(summary = "条件查询", description = "查询指定条件的支付信息")

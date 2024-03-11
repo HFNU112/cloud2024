@@ -19,7 +19,7 @@ const message = ref('南京')
 // 导入pay.vue文件
 import PayVue from './pay.vue';
 
-import PayVue from './vue/pay.vue';
+// import PayVue from './vue/pay.vue';
 </script>
 
 <template>
@@ -36,7 +36,7 @@ import PayVue from './vue/pay.vue';
     </div>
     <br>
     <!--  声明文件  -->
-    <!--    <ApiVue/>-->
+       <!-- <ApiVue/> -->
 
     <PayVue/>
 

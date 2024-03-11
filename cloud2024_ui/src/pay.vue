@@ -4,7 +4,22 @@
     <button @click="searchHandler"> 搜索</button>
     <br/>
     <br/>
-    <table border="1 solid" aria-colspan="0" cellpadding="0">
+    <el-table :data="payList.data" border style="width: 100%">
+      <el-table-column prop="payNo" label="支付流水号"></el-table-column>
+      <el-table-column prop="orderNo" label="订单流水号"></el-table-column>
+      <el-table-column prop="userId" label="用户id"></el-table-column>
+      <el-table-column prop="amount" label="交易金额"></el-table-column>
+      <el-table-column prop="createTime" label="创建时间"></el-table-column>
+      <el-table-column fixed="right" label="操作" width="120">
+      <template #default>
+        <el-button link type="primary" size="small" @click="handleClick"
+          >详情</el-button
+        >
+        <el-button link type="primary" size="small">编辑</el-button>
+      </template>
+    </el-table-column>
+    </el-table>
+    <!-- <table border="1 solid" aria-colspan="0" cellpadding="0">
       <tr>
         <th>支付流水号</th>
         <th>订单流水号</th>
@@ -13,7 +28,7 @@
         <th>创建时间</th>
         <th>操作</th>
       </tr>
-      <tr v-for="(pay, index) in payList">
+      <tr v-for="(pay, index) in payList.data">
         <td>{{ pay.payNo }}</td>
         <td>{{ pay.orderNo }}</td>
         <td>{{ pay.userId }}</td>
@@ -24,7 +39,7 @@
           <button>删除</button>
         </td>
       </tr>
-    </table>
+    </table> -->
   </div>
 </template>
 

@@ -42,6 +42,29 @@ public class PayServiceImpl extends ServiceImpl<PayMapper, Pay> implements IPayS
 
     @Override
     public List<Pay> getAll() {
+//        Integer currentPage = payPageBean.getCurrentPage();
+//
+//        Integer pageSize = payPageBean.getPageSize();
+//
+//        //创建新的PageBean对象
+//        PageBean<Pay> pb = new PageBean<>();
+//
+//        pb.setCurrentPage(currentPage);
+//        pb.setPageSize(pageSize);
+//
+//        Integer start = (currentPage - 1) * pageSize;
+//        //分页构造器
+//        IPage<Pay> page = new Page<>(start, pageSize);
+//        payMapper.selectPage(page, null);
+//        Long _totalRecords = page.getTotal();
+//        Integer totalRecords = _totalRecords.intValue();
+//        pb.setTotalRecords(totalRecords);
+//
+//        Long _totalPage = page.getPages();
+//        Integer totalPage = _totalPage.intValue();
+//        pb.setTotalPage(totalPage);
+//        List<Pay> records = page.getRecords();
+//        pb.setRecords(records);
         return payMapper.selectList(null);
     }
 

@@ -23,9 +23,7 @@ public class TestProviderPayment {
     @DisplayName("查询所有支付信息")
     public void testGetAll() {
         List<Pay> payList = payService.getAll();
-        for (Pay pay : payList) {
-            System.out.println("pay = " + pay);
-        }
+        System.out.println("payList = " + payList);
     }
 
 }

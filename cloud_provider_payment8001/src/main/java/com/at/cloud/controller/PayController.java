@@ -30,21 +30,21 @@ public class PayController {
     @Resource
     private IPayService payService;
 
-    @Operation(tags = "新增", description = "新增支付")
+    @Operation(tags = "新增", summary = "新增", description = "新增支付")
     @PostMapping("/add")
     public ResultData<String> addPay(@RequestBody @Parameter Pay pay){
         int row = payService.addPay(pay);
         return ResultData.success("新增成功，受影响行数：" + row);
     }
 
-    @Operation(tags = "删除", description = "删除支付")
+    @Operation(tags = "删除", summary = "删除", description = "删除支付")
     @DeleteMapping("/delete/{id}")
     public ResultData<Integer> deletePay(@PathVariable("id") @Parameter Long id){
         Integer i = payService.deletePay(id);
         return ResultData.success(i);
     }
 
-    @Operation(summary = "修改", description = "修改支付")
+    @Operation(tags = "修改",summary = "修改", description = "修改支付")
     @PutMapping("/update")
     public ResultData<String> updatePay(@RequestBody @Parameter PayDTO payDTO){
         Pay pay = new Pay();
@@ -53,14 +53,14 @@ public class PayController {
         return ResultData.success("修改成功，受影响行数：" + row);
     }
 
-    @Operation(summary = "查询单个", description = "查询单条支付信息")
+    @Operation(tags = "查询单个", summary = "查询单个", description = "查询单条支付信息")
     @GetMapping("/selectOne/{id}")
     public ResultData<Pay> getById(@PathVariable("id") @Parameter Long id){
         Pay pay = payService.getById(id);
         return ResultData.success(pay);
     }
 
-    @Operation(tags = "查询所有", description = "查询所有支付")
+    @Operation(tags = "查询所有", summary = "查询所有", description = "查询所有支付")
     @GetMapping("/selectAll")
     public ResultData<List<Pay>> getAll(){
         List<Pay> payList = payService.getAll();

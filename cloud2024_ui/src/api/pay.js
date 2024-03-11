@@ -9,12 +9,12 @@ import request from '@/utils/requestjs.js'
 // 获取所有的支付信息请求
 export function payServiceSelectAll() {
     //2. 发送请求
-    //因为异步请求需要同步等待服务器响应的结果并返回
+    //因为异步请求需要同步等待服务器响应的结果
     return request.get('/provider/pay/selectAll');
 }
 
 // 获取单条支付信息
-export async function  payServiceSelectCondition(condition) {
+export  function  payServiceSelectCondition(id) {
     // 点击请求
-    return await request.post('/provider/pay/selectByCondition', {params: condition});
+    return request.get('/provider/pay/selectOne/'+id)
 }

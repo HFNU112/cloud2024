@@ -1,0 +1,8 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: order-service
+logging:
+  level:
+    com.at.cloud: debug

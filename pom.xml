@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>cloud_provider_payment8001</module>
+        <module>cloud_consumer_order8002</module>
     </modules>
 
     <properties>

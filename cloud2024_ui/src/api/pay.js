@@ -14,7 +14,12 @@ export function payServiceSelectAll() {
 }
 
 // 获取单条支付信息
-export  function  payServiceSelectCondition(id) {
+export function payServiceSelectCondition(id) {
     // 点击请求
-    return request.get('/provider/pay/selectOne/'+id)
+    return request.get('/provider/pay/selectOne/' + id)
+}
+
+// 新增支付信息
+export function payServiceAdd(pay) {
+    return request.post('/provider/pay/add', pay);
 }

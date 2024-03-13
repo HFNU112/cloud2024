@@ -6,27 +6,27 @@
       </el-button>
 
       <el-dialog v-model="dialogFormVisible" title="新增支付信息" width="500">
-        <el-form :model="form">
-          <el-form-item label="支付流水号" :label-width="formLabelWidth">
-            <el-input v-model="form.name" autocomplete="off" />
+        <el-form :model="payModel" :rules="rules">
+          <el-form-item label="支付流水号" prop="payNo" :label-width="formLabelWidth">
+            <el-input v-model="payModel.payNo" autocomplete="off" />
           </el-form-item>
-          <el-form-item label="订单流水号" :label-width="formLabelWidth">
-            <el-input v-model="form.name" autocomplete="off" />
+          <el-form-item label="订单流水号" prop="orderNo" :label-width="formLabelWidth">
+            <el-input v-model="payModel.orderNo" autocomplete="off" />
           </el-form-item>
-          <el-form-item label="用户id" :label-width="formLabelWidth">
-            <el-select v-model="form.region" placeholder="please select your zone" autocomplete="off">
-              <el-option label="1" value="shanghai" />
-              <el-option label="2" value="beijing" />
+          <el-form-item label="用户id" prop="userId" :label-width="formLabelWidth">
+            <el-select v-model="payModel.userId" placeholder="选择用户" autocomplete="off">
+              <el-option label="1" value="1" />
+              <el-option label="2" value="2" />
             </el-select>
           </el-form-item>
-          <el-form-item label="交易金额" :label-width="formLabelWidth">
-            <el-input v-model="form.name" autocomplete="off" />
+          <el-form-item label="交易金额" prop="amount" :label-width="formLabelWidth">
+            <el-input v-model="payModel.amount" autocomplete="off" />
           </el-form-item>
         </el-form>
         <template #footer>
           <div class="dialog-footer">
             <el-button @click="dialogFormVisible = false">取消</el-button>
-            <el-button type="primary" @click="dialogFormVisible = false">
+            <el-button type="primary" @click="addPay">
               保存
             </el-button>
           </div>
@@ -79,9 +79,9 @@
 
 <script setup>
 // 导入api接口的js文件
-import { payServiceSelectAll, payServiceSelectCondition } from '@/api/pay.js';
+import { payServiceSelectAll, payServiceSelectCondition, payServiceAdd } from '@/api/pay.js';
 import { reactive, ref } from 'vue';
-import {ElMessage, ElMessageBox} from 'element-plus';
+import { ElMessage, ElMessageBox } from 'element-plus';
 
 //定义响应式数据
 const payList = ref([])
@@ -176,6 +176,37 @@ const delectHandleById = async function (id) {
     })
 }
 
+//添加数据模型
+const payModel = ref({
+  payNo: '',
+  orderNo: '',
+  userId: 1,
+  amount: ''
+})
+
+// 添加新增表单校验
+const rules = {
+  payNo: [
+    { required: true, message: '请输入支付流水号', trigger: 'blur' },
+  ],
+  orderNo: [
+    { required: true, message: '请输入订单流水号', trigger: 'blur' },
+  ],
+  amount: [
+    { required: true, message: '请输入交易金额', trigger: 'blur' },
+  ]
+}
+
+// 新增函数
+const addPay = async function () {
+  let result = await payServiceAdd(payModel.value);
+  Elmessage.success(result.message ? result.message : '添加成功');
+
+  // 新增对话框消失
+  dialogFormVisible.value = false;
+  // 刷新列表
+  getAllPay();
+}
 </script>
 
 <style scoped></style>

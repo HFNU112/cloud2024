@@ -24,7 +24,7 @@ public class OrderController {
 
     @Operation(tags = "新增", summary = "新增", description = "服务消费新增支付")
     @GetMapping("/add")
-    public ResultData addPay(@RequestBody @Parameter PayDTO payDTO) {
+    public ResultData addPay(@Parameter PayDTO payDTO) {
         return restTemplate.postForObject(SystemConstant.PAYMENT_BASE_URL + "/provider/pay/add", payDTO, ResultData.class);
     }
 
@@ -36,7 +36,7 @@ public class OrderController {
 
     @Operation(tags = "修改", summary = "修改", description = "服务消费修改支付")
     @GetMapping("/update")
-    public ResultData updatePay(@RequestBody @Parameter PayDTO payDTO) {
+    public ResultData updatePay(@Parameter PayDTO payDTO) {
         restTemplate.put(SystemConstant.PAYMENT_BASE_URL + "/provider/pay/update", payDTO);
         return ResultData.success("修改成功");
     }

@@ -101,6 +101,8 @@ spring-consul: https://spring.io/projects/spring-cloud-consul
 
 spring-consul提出的bug：https://stackoverflow.com/questions/tagged/spring-cloud
 
+consul下载安装：https://developer.hashicorp.com/consul/install#windows
+
 consul-windows.exe 1.17.1
 
 

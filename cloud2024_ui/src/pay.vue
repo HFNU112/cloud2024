@@ -1,23 +1,17 @@
 <template>
   <div>
     <div>
-      <el-button plain @click="dialogFormVisible = true">
+      <el-button plain @click="dialogFormVisible = true; title = '新增支付信息'">
         新增
       </el-button>
 
-      <el-dialog v-model="dialogFormVisible" title="新增支付信息" width="500">
+      <el-dialog v-model="dialogFormVisible" :title="title" width="500">
         <el-form :model="payModel" :rules="rules">
           <el-form-item label="支付流水号" prop="payNo" :label-width="formLabelWidth">
             <el-input v-model="payModel.payNo" autocomplete="off" />
           </el-form-item>
           <el-form-item label="订单流水号" prop="orderNo" :label-width="formLabelWidth">
             <el-input v-model="payModel.orderNo" autocomplete="off" />
-          </el-form-item>
-          <el-form-item label="用户id" prop="userId" :label-width="formLabelWidth">
-            <el-select v-model="payModel.userId" placeholder="选择用户" autocomplete="off">
-              <el-option label="1" value="1" />
-              <el-option label="2" value="2" />
-            </el-select>
           </el-form-item>
           <el-form-item label="交易金额" prop="amount" :label-width="formLabelWidth">
             <el-input v-model="payModel.amount" autocomplete="off" />
@@ -44,10 +38,10 @@
       <el-table-column prop="userId" label="用户id" width="90"></el-table-column>
       <el-table-column prop="amount" label="交易金额" width="120"></el-table-column>
       <el-table-column fixed="right" label="操作" width="240">
-        <template #default>
+        <template #default="{ row }">
           <el-button link type="primary" size="small" @click="selectOneHandle">详情</el-button>
-          <el-button link type="primary" size="small">编辑</el-button>
-          <el-button link type="primary" size="small" @click='delectHandleById'>删除</el-button>
+          <el-button link type="primary" size="small" @click="addOrEditPayDialog">编辑</el-button>
+          <el-button link type="primary" size="small" @click="delectPayById(row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -79,7 +73,7 @@
 
 <script setup>
 // 导入api接口的js文件
-import { payServiceSelectAll, payServiceSelectCondition, payServiceAdd } from '@/api/pay.js';
+import { payServiceSelectAll, payServiceSelectCondition, payServiceAdd, payServiceDelete } from '@/api/pay.js';
 import { reactive, ref } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 
@@ -151,31 +145,6 @@ const gridData = [
   },
 ]
 
-// 删除事件触发
-const delectHandleById = async function (id) {
-  ElMessageBox.confirm(
-    '确定删除么?',
-    'Warning',
-    {
-      confirmButtonText: 'OK',
-      cancelButtonText: 'Cancel',
-      type: 'warning',
-    }
-  )
-    .then(() => {
-      ElMessage({
-        type: 'success',
-        message: '删除成功',
-      })
-    })
-    .catch(() => {
-      ElMessage({
-        type: 'info',
-        message: 'Delete canceled',
-      })
-    })
-}
-
 //添加数据模型
 const payModel = ref({
   payNo: '',
@@ -207,6 +176,44 @@ const addPay = async function () {
   // 刷新列表
   getAllPay();
 }
+
+// 控制新增或修改变量
+const title = ref('')
+
+// 增加或修改展示弹框
+const addOrEditPayDialog = function (row) {
+  dialogFormVisible.value = true; title.value = '编辑支付信息';
+  payModel.payNo = row.payNo;
+  payModel.orderNo = row.orderNo;
+}
+
+// 删除支付信息函数
+const delectPayById = async function (row) {
+  ElMessageBox.confirm(
+    '确定要删除么?',
+    '温馨提示!',
+    {
+      confirmButtonText: '确认',
+      cancelButtonText: '取消',
+      type: 'warning',
+    }
+  ).then(() => {
+    // 调用删除接口
+    let result = payServiceDelete(row.id);
+    ElMessage({
+      type: 'success',
+      message: '删除成功',
+    })
+    //刷新列表
+    getAllPay();
+  }).catch(() => {
+    ElMessage({
+      type: 'info',
+      message: '取消删除',
+    })
+  })
+}
+
 </script>
 
 <style scoped></style>

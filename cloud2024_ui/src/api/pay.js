@@ -23,3 +23,8 @@ export function payServiceSelectCondition(id) {
 export function payServiceAdd(pay) {
     return request.post('/provider/pay/add', pay);
 }
+
+// 删除支付信息
+export function payServiceDelete(id) {
+    return request.delete('/provider/pay/delete/' + id);
+}

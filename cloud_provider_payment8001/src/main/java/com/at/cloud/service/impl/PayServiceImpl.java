@@ -42,7 +42,9 @@ public class PayServiceImpl extends ServiceImpl<PayMapper, Pay> implements IPayS
 
     @Override
     public List<Pay> getAll() {
-        return payMapper.selectList(null);
+        QueryWrapper<Pay> wrapper = new QueryWrapper<>();
+        wrapper.eq("deleted", 0);
+        return payMapper.selectList(wrapper);
     }
 
     @Override

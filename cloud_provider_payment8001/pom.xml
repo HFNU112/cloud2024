@@ -81,6 +81,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 引入自己定义的api通用包 -->
+        <dependency>
+            <groupId>com.at.cloud</groupId>
+            <artifactId>cloud_api_commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- mybatis-plus-boot-starter -->
         <dependency>
             <groupId>com.baomidou</groupId>

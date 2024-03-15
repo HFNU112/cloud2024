@@ -28,6 +28,7 @@
     </el-form-item>
   </el-form>
 
+  <div id="app">
   <!-- 列表数据 -->
   <el-table :data="payLists" style="width: 100%">
     <el-table-column fixed prop="createTime" label="创建日期" width="150"/>
@@ -47,6 +48,7 @@
       </template>
     </el-table-column>
   </el-table>
+  </div>
 
   <!-- 分页组件 -->
   <el-pagination class="demo-pagination-block"
@@ -66,62 +68,77 @@
 <script lang="ts" setup>
 import {ref} from 'vue';
 // 导入api接口的js文件
-import {payServiceSelectAll, payServiceSelectCondition} from '/api/pay.js';
-import {reactive} from 'vue';
+// import {payServiceSelectAll, payServiceSelectCondition} from '@/api/pay.js';
+import Vue from 'vue';
+import axios from 'axios';
 
-const formInline = reactive({
-  user: '',
-  region: '',
-  date: '',
-})
-
-const onSubmit = () => {
-  console.log('submit!')
-}
-
-
-const currentPage1 = ref(5)
-const currentPage2 = ref(5)
-const currentPage3 = ref(5)
-const currentPage4 = ref(4)
-const pageSize2 = ref(100)
-const pageSize3 = ref(100)
-const pageSize4 = ref(100)
-const small = ref(false)
-const background = ref(false)
-const disabled = ref(false)
-
-const handleSizeChange = (val: number) => {
-  console.log(`${val} items per page`)
-}
-const handleCurrentChange = (val: number) => {
-  console.log(`current page: ${val}`)
-}
-
-const handleClick = () => {
-  console.log('click')
-}
-
-//定义响应式数据
-const payLists = ([
-  {
-    createTime: '2016-05-03',
-    payNo: 'Tom',
-    orderNo: 'California',
-    userId: 'Los Angeles',
-    amount: 'No. 189, Grove St, Los Angeles',
+export default Vue.extend({
+  data() {
+    return {
+      formInline: {
+        user: '',
+        region: '',
+        date: '',
+      },
+      payLists: [],
+    }
   },
-  {
-    createTime: '2016-05-03',
-    payNo: 'Tom',
-    orderNo: 'California',
-    userId: 'Los Angeles',
-    amount: 'No. 189, Grove St, Los Angeles',
-  }
-])
+});
 
-// 获取数据
-// 调用同步获取数据的函数网络请求 await async
+// const formInline = reactive({
+//   user: '',
+//   region: '',
+//   date: '',
+// })
+
+// const onSubmit = () => {
+//   console.log('submit!')
+// }
+
+
+// const currentPage1 = ref(5)
+// const currentPage2 = ref(5)
+// const currentPage3 = ref(5)
+// const currentPage4 = ref(4)
+// const pageSize2 = ref(100)
+// const pageSize3 = ref(100)
+// const pageSize4 = ref(100)
+// const small = ref(false)
+// const background = ref(false)
+// const disabled = ref(false)
+
+// const handleSizeChange = (val: number) => {
+//   console.log(`${val} items per page`)
+// }
+// const handleCurrentChange = (val: number) => {
+//   console.log(`current page: ${val}`)
+// }
+
+// const handleClick = () => {
+//   console.log('click')
+// }
+
+// //定义响应式数据
+// const payLists = ([
+//   {
+//     createTime: '2016-05-03',
+//     payNo: 'Tom',
+//     orderNo: 'California',
+//     userId: 'Los Angeles',
+//     amount: 'No. 189, Grove St, Los Angeles',
+//   },
+//   {
+//     createTime: '2016-05-03',
+//     payNo: 'Tom',
+//     orderNo: 'California',
+//     userId: 'Los Angeles',
+//     amount: 'No. 189, Grove St, Los Angeles',
+//   }
+// ])
+
+
+
+
 
 
 

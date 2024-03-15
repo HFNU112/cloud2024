@@ -19,6 +19,9 @@ const message = ref('南京')
 // 导入pay.vue文件
 import PayVue from './pay.vue';
 
+// 导入sso.vue文件
+// import sso from './sso.vue';
+
 // import PayVue from './vue/pay.vue';
 </script>
 
@@ -39,6 +42,8 @@ import PayVue from './pay.vue';
        <!-- <ApiVue/> -->
 
     <PayVue/>
+
+    <!-- <sso.vue/> -->
 
   </header>
 

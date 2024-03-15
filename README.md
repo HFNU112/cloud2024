@@ -89,7 +89,7 @@ freemarker 2.3.32
 
 1、RestTemplate 服务调用提供者uri硬编码问题，带来维护问题。
 
-> 服务注册发现
+> 服务注册与发现
 
 Consul: https://www.consul.io/
 
@@ -105,7 +105,21 @@ consul下载安装：https://developer.hashicorp.com/consul/install#windows
 
 consul-windows.exe 1.17.1
 
+CAP理论
 
++ consul分布式动态配置
+
+通用的全局配置注册服务提供者到注册中心consul，从consul中获取服务提供者，遵循consul配置中心。
+
+在consul选择环境配置 --> 浏览器拉取注册中心中的配置
+
++ consul设置等待时间刷新配置信息
+
+> 服务调用与负载均衡
+
++ LoadBalance客户端负载均衡器
+
+官网是什么：https://docs.spring.io/spring-cloud-commons/reference/4.1-SNAPSHOT/spring-cloud-commons/loadbalancer.html
 
 
 

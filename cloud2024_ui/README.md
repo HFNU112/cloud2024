@@ -53,6 +53,10 @@ npm run build
 npm install axios
 ````
 
+### 前后端接口联调跨域(CORS)
+
+> 由于一个浏览器（客户端）的同源策略的限制，向不同源【不同协议、不同域名(IP)、不同端口(PORT)】发送异步请求失败。
+
 ### element-plus组件
 
 ![element-plus] https://element-plus.org/zh-CN/component/overview.html

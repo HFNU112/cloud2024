@@ -1,9 +1,9 @@
 package com.at.cloud;
 
 import com.at.cloud.entities.Pay;
-import com.at.cloud.entities.dto.PayDTO;
 import com.at.cloud.service.IPayService;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,13 +22,17 @@ public class TestProviderPayment {
     private IPayService payService;
 
     @Test
+    @Order(1)
     @DisplayName(value = "测试查询所有支付信息")
     public void testGetAll() {
-        List<Pay> payList = payService.getAll();
-        System.out.println("payList = " + payList);
+        List<Pay> payLists = payService.getAll();
+        for (Pay pay : payLists) {
+            System.out.println("pay = " + pay);
+        }
     }
 
     @Test
+    @Order(2)
     @DisplayName(value = "测试新增支付")
     public void testAddPay(){
         Pay pay = new Pay();
@@ -40,6 +44,7 @@ public class TestProviderPayment {
     }
 
     @Test
+    @Order(3)
     @DisplayName(value = "测试删除支付")
     public void testDeletePay(){
         Long id = 12L;
@@ -48,6 +53,7 @@ public class TestProviderPayment {
     }
 
     @Test
+    @Order(4)
     @DisplayName(value = "测试修改支付")
     public void testUpdatePay(){
         Pay pay = new Pay();

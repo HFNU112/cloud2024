@@ -95,15 +95,23 @@ Consul: https://www.consul.io/
 
 什么是Consul: https://developer.hashicorp.com/consul/docs/intro
 
-spring-consul: https://spring.io/projects/spring-cloud-consul
+spring-consul使用: https://docs.spring.io/spring-cloud-consul/reference/quickstart.html
 
 使用spring-consul的issue: https://github.com/spring-cloud/spring-cloud-consul
 
 spring-consul提出的bug：https://stackoverflow.com/questions/tagged/spring-cloud
 
-consul下载安装：https://developer.hashicorp.com/consul/install#windows
+consul下载安装：https://developer.hashicorp.com/consul/install#windows consul-windows.exe(AMD64)
 
-consul-windows.exe 1.17.1
+consul启动命令
+
+```json
+consul --version
+
+consul agent -dev
+
+http://localhost:8500/
+```
 
 CAP理论
 

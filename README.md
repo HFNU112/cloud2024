@@ -121,6 +121,31 @@ CAP理论
 
 官网是什么：https://docs.spring.io/spring-cloud-commons/reference/4.1-SNAPSHOT/spring-cloud-commons/loadbalancer.html
 
+> LoadBalancer两步曲：
+> 1、服务消费者从consul server拉取服务列表，如果有多个服务默认轮询方式调用。
+> 2、按负载均衡策略转发服务上
+
++ ctrl + D CloudConsumerOrderApplication8003  
+
++ consul 服务配置数据持久化
+
+LoadBalancer动态切换客户端：
+
+LoadBalancer 找客户端负载均衡算法：rest接口请求第 xx 次 % 服务器集群总数 = 实际调用服务器位置索引，每次consul重启后rest接口计数从1开始。
+
+LoadBalancer负载均衡算法：https://docs.spring.io/spring-cloud-commons/reference/4.1-SNAPSHOT/spring-cloud-commons/loadbalancer.html
+
+> 轮询：RoundRobinLoadBalancer
+> 随机：RandomLoadBalancer
+
++ openFeign接口调用
+
+什么是openFeign官网intro: https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#spring-cloud-feign
+
+openFeign源码：https://github.com/spring-cloud/spring-cloud-openfeign
+
+openFeign踩过的坑：https://github.com/spring-cloud/spring-cloud-openfeign/issues
+
 
 
 

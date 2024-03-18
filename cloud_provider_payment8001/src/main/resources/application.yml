@@ -14,6 +14,12 @@ spring:
         enabled: true
         max-file-size: 2000MB
         max-request-size: 2000MB
+  cloud:
+    consul:
+      host: localhost  # consul地址
+      port: 8500       # consul端口 默认：8500
+      discovery:
+        service-name: ${spring.application.name}  # 注册服务名称
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.at.cloud.entities

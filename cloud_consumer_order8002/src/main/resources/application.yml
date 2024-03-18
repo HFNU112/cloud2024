@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: order-service
+  cloud:
+    consul:
+      host: localhost # consul地址
+      port: 8500      # consul端口 默认：8500
+      discovery:
+        prefer-ip-address: true  # 优先使用IP注册
 logging:
   level:
     com.at.cloud: debug

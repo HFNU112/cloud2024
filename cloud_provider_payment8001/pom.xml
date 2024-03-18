@@ -88,6 +88,12 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- consul -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+        </dependency>
+
         <!-- mybatis-plus-boot-starter -->
         <dependency>
             <groupId>com.baomidou</groupId>

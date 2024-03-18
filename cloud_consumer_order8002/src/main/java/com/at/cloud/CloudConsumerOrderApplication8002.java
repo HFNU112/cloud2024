@@ -3,6 +3,7 @@ package com.at.cloud;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
@@ -15,6 +16,7 @@ import java.net.UnknownHostException;
  */
 @Slf4j
 @SpringBootApplication
+@EnableDiscoveryClient  // 开启服务发现
 public class CloudConsumerOrderApplication8002 {
 
     public static void main(String[] args) throws UnknownHostException {

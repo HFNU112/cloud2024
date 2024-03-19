@@ -103,13 +103,20 @@ spring-consul提出的bug：https://stackoverflow.com/questions/tagged/spring-cl
 
 consul下载安装：https://developer.hashicorp.com/consul/install#windows consul-windows.exe(AMD64)
 
-consul启动命令
+consul命令
 
 ```json
+# 检查
 consul --version
+```
 
+```json
+# 运行
 consul agent -dev
+```
 
+```json
+# 访问        
 http://localhost:8500/
 ```
 
@@ -133,7 +140,7 @@ CAP理论
 > 1、服务消费者从consul server拉取服务列表，如果有多个服务默认轮询方式调用。
 > 2、按负载均衡策略转发服务上
 
-+ ctrl + D CloudConsumerOrderApplication8003  
++ ctrl + D CloudProviderPaymentApplication8000  
 
 + consul 服务配置数据持久化
 
@@ -154,6 +161,12 @@ openFeign源码：https://github.com/spring-cloud/spring-cloud-openfeign
 
 openFeign踩过的坑：https://github.com/spring-cloud/spring-cloud-openfeign/issues
 
+openFeign应用：(面向接口编程)
+
+openFeign的特性：
+1. 服务使用者请求服务提供者超时：https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#timeout-handling
+
+2. 服务使用者请求重试：
 
 
 

@@ -6,7 +6,13 @@ package com.at.cloud.constant;
  */
 public class SystemConstant {
 
+    /**
+     * 服务提供者IP
+     */
     public static final String PAYMENT_BASE_URL = "http://localhost:8001";
 
+    /**
+     * 服务注册中心的服务名称
+     */
     public static final String PAYMENT_APPLICATION_URL = "http://payment-service";
 }

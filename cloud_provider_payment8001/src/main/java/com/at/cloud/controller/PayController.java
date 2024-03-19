@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +30,9 @@ public class PayController {
 
     @Resource
     private IPayService payService;
+
+    @Value("${server.port}")
+    private String port;
 
     @Operation(tags = "新增", summary = "新增", description = "新增支付")
     @PostMapping("/add")
@@ -71,5 +75,10 @@ public class PayController {
     @PostMapping("/selectByCondition")
     public List<Pay> getPayByCondition(@RequestBody @Parameter PayDTO payDTO){
         return payService.getPayByCondition(payDTO);
+    }
+
+    @GetMapping("/checkHealth")
+    public String checkHealthConsul(@Value("${at.info}") String atInfo){
+        return "atInfo: "+atInfo+"\t"+"port: "+port;
     }
 }

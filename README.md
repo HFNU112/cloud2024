@@ -17,6 +17,7 @@ spring-cloud-alibaba：https://github.com/alibaba/spring-cloud-alibaba
 
 spring-cloud-alibaba版本说明：https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
 
+架构图&流程图工具：https://excalidraw.com/
 
 #### 需求说明
 
@@ -101,7 +102,7 @@ spring-consul使用: https://docs.spring.io/spring-cloud-consul/reference/quicks
 
 spring-consul提出的bug：https://stackoverflow.com/questions/tagged/spring-cloud
 
-consul下载安装：https://developer.hashicorp.com/consul/install#windows consul-windows.exe(AMD64)
+consul下载安装：https://developer.hashicorp.com/consul/install#windows
 
 consul命令
 
@@ -168,6 +169,7 @@ openFeign的特性：
 
 2. 服务使用者请求重试：
 
+3. feign使用http client发送请求
 
 
 

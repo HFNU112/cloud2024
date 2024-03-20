@@ -3,14 +3,13 @@ spring:
     name: payment-service
   cloud:
     consul:
-      host: localhost  # consul地址
+      host: 127.0.0.1   # consul地址
       port: 8500       # consul端口 默认：8500
       discovery:
         service-name: ${spring.application.name}  # 注册服务名称
-    config:
-      enabled: true
-      profileSeparator: '-' # default value is ","，we update '-'
-      format: YAML
+      config:
+        profile-separator: '-'
+        format: YAML
 #config/payment-service/data
-#      /payment-service-dev/data
+#      /payment-service-8001-dev/data
 #      /payment-service-prod/data

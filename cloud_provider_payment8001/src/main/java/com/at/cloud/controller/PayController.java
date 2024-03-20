@@ -10,8 +10,11 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -78,8 +81,8 @@ public class PayController {
     }
 
     @GetMapping("/checkHealth")
-    public String checkHealthConsul(@Value("${atguigu.info}") String atInfo) {
-        return "atInfo: " + atInfo + "\t" + "port: " + port;
+    public String checkHealthConsul(@Value("${atguigu.info}") String atInfo, @Value("${logging.pattern.dateformat}") String dateformat) {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(dateformat)) + "\t" + "atInfo: " + atInfo + "\t" + "port: " + port;
     }
 
     @GetMapping(value = "/get/info")

@@ -5,6 +5,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
@@ -19,6 +20,7 @@ import java.net.UnknownHostException;
 @SpringBootApplication
 @MapperScan("com.at.cloud.mapper")
 @EnableDiscoveryClient  // 开启服务发现
+@RefreshScope // consul配置动态刷新
 public class CloudProviderPaymentApplication8001 {
 
     public static void main(String[] args) throws UnknownHostException {

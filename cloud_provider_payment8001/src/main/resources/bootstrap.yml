@@ -10,6 +10,8 @@ spring:
       config:
         profile-separator: '-'
         format: YAML
+#        watch:
+#          wait-time: 1  # 等待（或阻止）监视查询的秒数,实际过程中不能轻易的改动
 #config/payment-service/data
 #      /payment-service-8001-dev/data
 #      /payment-service-prod/data

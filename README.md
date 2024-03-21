@@ -131,11 +131,18 @@ CAP理论
 
 + consul设置等待时间刷新配置信息
 
+动态刷新配置
+
+
 > 服务调用与负载均衡
+
++ ribbon处于维护中，不再更新：https://github.com/Netflix/ribbon
 
 + LoadBalance客户端负载均衡器
 
 官网是什么：https://docs.spring.io/spring-cloud-commons/reference/4.1-SNAPSHOT/spring-cloud-commons/loadbalancer.html
+
+LoadBalancer的使用：https://docs.spring.io/spring-cloud-commons/reference/4.1-SNAPSHOT/spring-cloud-commons/common-abstractions.html#rest-template-loadbalancer-client
 
 > LoadBalancer两步曲：
 > 1、服务消费者从consul server拉取服务列表，如果有多个服务默认轮询方式调用。

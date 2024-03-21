@@ -161,9 +161,11 @@ LoadBalancer负载均衡算法：https://docs.spring.io/spring-cloud-commons/ref
 > 轮询：RoundRobinLoadBalancer
 > 随机：RandomLoadBalancer
 
-+ openFeign接口调用
++ openFeign面向接口编程远程调用服务提供者
 
 什么是openFeign官网intro: https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#spring-cloud-feign
+
+谁是服务消费者/使用的人，谁就用feign公共远程接口~
 
 openFeign源码：https://github.com/spring-cloud/spring-cloud-openfeign
 
@@ -172,11 +174,46 @@ openFeign踩过的坑：https://github.com/spring-cloud/spring-cloud-openfeign/i
 openFeign应用：(面向接口编程)
 
 openFeign的特性：
-1. 服务使用者请求服务提供者超时：https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#timeout-handling
+1. 服务使用者请求服务提供者超时：
+
+https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#timeout-handling
+
+> 默认超时时间：60s
+> 超时控制指定配置：
+> https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#spring-cloud-feign
 
 2. 服务使用者请求重试：
 
-3. feign使用http client发送请求
+> 超时控制重试指定配置：
+> https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#spring-cloud-feign-overriding-defaults
+> 重试的次数3 = 1(默认次数) + 2
+
+3. feign使用Apache HTTPClient5请求
+
+
+4. feign请求响应压缩
+
+https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#feign-requestresponse-compression
+
+5. feign日志级别输出
+
+https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#feign-logging
+
+问题：在日常应用app中应该如何选择LoadBalancer和openFeign呢？
+
+
+
+> 服务熔断和降级
+
+Hystrix Status: https://github.com/Netflix/Hystrix/blob/master/README.md
+
++  断路器：用于处理生产故障
+
+Resilience4J官网：https://spring.io/projects/spring-cloud-circuitbreaker#overview
+
+resilience4j源码：https://github.com/resilience4j/resilience4j
+
+
 
 
 

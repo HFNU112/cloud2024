@@ -56,10 +56,10 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!-- consul -->
+        <!-- openfeign -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
     </dependencies>

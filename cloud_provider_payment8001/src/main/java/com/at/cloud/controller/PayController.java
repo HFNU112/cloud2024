@@ -1,6 +1,7 @@
 package com.at.cloud.controller;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.at.cloud.apis.PayFeignApis;
 import com.at.cloud.common.ResultData;
 import com.at.cloud.entities.Pay;
 import com.at.cloud.entities.dto.PayDTO;
@@ -10,7 +11,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -36,6 +36,9 @@ public class PayController {
 
     @Value("${server.port}")
     private String port;
+
+    @Resource
+    private PayFeignApis payFeignApis;
 
     @Operation(tags = "新增", summary = "新增", description = "新增支付")
     @PostMapping("/add")

@@ -133,6 +133,11 @@ CAP理论
 
 动态刷新配置
 
+#### 演示
+
+1.consul
+
+![consul](https://cloud2024-vue3-ui.oss-cn-shanghai.aliyuncs.com/%E6%9C%8D%E5%8A%A1%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/consul.gif)
 
 > 服务调用与负载均衡
 
@@ -203,7 +208,11 @@ https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#feign-l
 
 问题：在日常应用app中应该如何选择LoadBalancer和openFeign呢？
 
+#### 演示
 
+2.loadbalancer
+
+![loadbalancer](https://cloud2024-vue3-ui.oss-cn-shanghai.aliyuncs.com/%E6%9C%8D%E5%8A%A1%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/loadbalancer1.gif)
 
 > 服务熔断和降级
 

@@ -5,7 +5,8 @@ spring:
     name: consumer-openfeign-order-service
   cloud:
     consul:
-      host: 127.0.0.1 # consul地址
+#      host: 127.0.0.1 # consul地址
+      host: 192.168.241.128 # consul地址
       port: 8500      # consul端口 默认：8500
       discovery:
         prefer-ip-address: true  # 优先使用IP注册

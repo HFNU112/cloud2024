@@ -10,25 +10,24 @@ import org.springframework.web.bind.annotation.*;
  * @date: 2024/3/21 17:30
  */
 @FeignClient(value = "payment-service")
-@RequestMapping("/openFeign/provider/pay")
 public interface PayFeignApis {
 
-    @PostMapping("/add")
+    @PostMapping("/provider/pay/add")
     public ResultData addPay(@RequestBody PayDTO payDTO);
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/provider/pay/delete/{id}")
     public ResultData deletePay(@PathVariable("id") Long id);
 
-    @PutMapping("/update")
+    @PutMapping("/provider/pay/update")
     public ResultData updatePay(@RequestBody PayDTO payDTO);
 
-    @GetMapping("/selectOne/{id}")
+    @GetMapping("/provider/pay/selectOne/{id}")
     public ResultData getById(@PathVariable("id") Long id);
 
-    @GetMapping("/selectAll")
+    @GetMapping("/provider/pay/selectAll")
     public ResultData getAll();
 
-    @GetMapping("/checkHealth")
+    @GetMapping("/provider/pay/checkHealth")
     public String checkHealthConsul();
 
 }

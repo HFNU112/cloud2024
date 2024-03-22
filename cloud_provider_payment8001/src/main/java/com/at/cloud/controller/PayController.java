@@ -37,9 +37,6 @@ public class PayController {
     @Value("${server.port}")
     private String port;
 
-    @Resource
-    private PayFeignApis payFeignApis;
-
     @Operation(tags = "新增", summary = "新增", description = "新增支付")
     @PostMapping("/add")
     public ResultData<String> addPay(@RequestBody @Parameter Pay pay) {

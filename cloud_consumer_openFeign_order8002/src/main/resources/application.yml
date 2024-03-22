@@ -10,6 +10,26 @@ spring:
       discovery:
         prefer-ip-address: true  # 优先使用IP注册
         service-name: ${spring.application.name}
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 4000 # 连接超时时间
+            read-timeout: 4000  # 读取超时时间
+          payment-service:
+            connect-timeout: 5000   # 连接超时时间
+            read-timeout: 5000   # 读取超时时间
+      #            retryer: com.at.cloud  # 重试
+      httpclient:
+        hc5:
+          enabled: true # HttpClient5 配置开启
+      compression:
+        request:
+          enabled: true
+          mime-types: text/xml,application/xml,application/json  # 压缩媒体类型
+          min-request-size: 2048  # 最小请求阈值长度
+        response:
+          enabled: true
 logging:
   level:
-    com.at.cloud: debug
+    com.at.cloud.apis.PayFeignApis: debug  # 记录器的名称是用于创建 Feign 客户端的接口的完整类名

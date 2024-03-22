@@ -185,7 +185,9 @@ https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#timeout
 2. 服务使用者请求重试：
 
 > 超时控制重试指定配置：
-> https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#spring-cloud-feign-overriding-defaults
+
+https://docs.spring.io/spring-cloud-openfeign/docs/4.0.6/reference/html/#spring-cloud-feign-overriding-defaults
+
 > 重试的次数3 = 1(默认次数) + 2
 
 3. feign使用Apache HTTPClient5请求

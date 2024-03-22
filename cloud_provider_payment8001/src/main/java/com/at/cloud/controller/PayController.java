@@ -10,12 +10,14 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -25,6 +27,7 @@ import java.util.List;
  * @author shunpeng.hu
  * @since 2024-03-08
  */
+@Slf4j
 @Tag(name = "支付服务模块", description = "支付服务CRUD")
 @CrossOrigin // 跨域解决方法
 @RestController
@@ -63,6 +66,12 @@ public class PayController {
     @Operation(tags = "查询单个", summary = "查询单个", description = "查询单条支付信息")
     @GetMapping("/selectOne/{id}")
     public ResultData<Pay> getById(@PathVariable("id") @Parameter Long id) {
+        try {
+            TimeUnit.SECONDS.sleep(62);
+        } catch (InterruptedException e) {
+            log.error("线程休眠了");
+            throw new RuntimeException("线程休眠了:" + e.getMessage());
+        }
         Pay pay = payService.getById(id);
         return ResultData.success(pay);
     }

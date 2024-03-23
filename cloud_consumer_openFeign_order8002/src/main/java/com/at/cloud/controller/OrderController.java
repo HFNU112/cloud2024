@@ -64,9 +64,10 @@ public class OrderController {
         return ResultData.success(payList);
     }
 
+    @Operation(tags = "openFeign远程调用", summary = "openFeign远程调用", description = "openFeign远程调用检查consul注册服务")
     @GetMapping("/checkHealth")
-    public String checkHealthConsul() {
-        return payFeignApis.checkHealthConsul();
+    public ResultData<String> checkHealthConsul() {
+        return ResultData.success(payFeignApis.checkHealthConsul());
     }
 
 }

@@ -8,13 +8,13 @@
       <el-dialog v-model="dialogFormVisible" :title="title" width="500">
         <el-form :model="payModel" :rules="rules">
           <el-form-item label="支付流水号" prop="payNo" :label-width="formLabelWidth">
-            <el-input v-model="payModel.payNo" autocomplete="off" />
+            <el-input v-model="payModel.payNo" autocomplete="off"/>
           </el-form-item>
           <el-form-item label="订单流水号" prop="orderNo" :label-width="formLabelWidth">
-            <el-input v-model="payModel.orderNo" autocomplete="off" />
+            <el-input v-model="payModel.orderNo" autocomplete="off"/>
           </el-form-item>
           <el-form-item label="交易金额" prop="amount" :label-width="formLabelWidth">
-            <el-input v-model="payModel.amount" autocomplete="off" />
+            <el-input v-model="payModel.amount" autocomplete="off"/>
           </el-form-item>
         </el-form>
         <template #footer>
@@ -28,9 +28,26 @@
       </el-dialog>
     </div>
 
-    <br />
+    <br/>
 
-    <br />
+    <br/>
+    <el-form :model="form" label-width="auto" style="max-width: 300px">
+      <el-form-item label="支付流水号:">
+        <el-input v-model="form.name"/>
+      </el-form-item>
+      <el-form-item label="创建时间：">
+        <el-col :span="11">
+          <el-date-picker v-model="form.date1" type="date" placeholder="开始日期" style="width: 200%"/>
+        </el-col>
+        <el-col :span="2" class="text-center">
+          <span class="text-gray-500"> - </span>
+        </el-col>
+        <el-col :span="11">
+          <el-date-picker v-model="form.date2" type="date" placeholder="结束日期" style="width: 200%"/>
+        </el-col>
+      </el-form-item>
+    </el-form>
+
     <el-table :data="payList.data" border style="width: 100%">
       <el-table-column prop="createTime" label="创建时间" width="200"></el-table-column>
       <el-table-column prop="payNo" label="支付流水号" width="150"></el-table-column>
@@ -45,7 +62,11 @@
         </template>
       </el-table-column>
     </el-table>
-    <br>
+
+    <el-pagination
+        v-model:current-page="pageNum" v-model:page-size="pageSize" :page-sizes="[10, 20, 50, 100, 200]"
+        :small="small" :disabled="disabled" :background="background" layout="total, sizes, prev, pager, next, jumper"
+        :total="total" @size-change="handleSizeChange" @current-change="handleCurrentChange"/>
 
     <!-- <table border="1 solid" aria-colspan="0" cellpadding="0">
       <tr>
@@ -73,14 +94,14 @@
 
 <script setup>
 // 导入api接口的js文件
-import { payServiceSelectAll, payServiceSelectCondition, payServiceAdd, payServiceDelete } from '@/api/pay.js';
-import { reactive, ref } from 'vue';
-import { ElMessage, ElMessageBox } from 'element-plus';
+import {payServiceSelectAll, payServiceSelectCondition, payServiceAdd, payServiceDelete} from '@/api/pay.js';
+import {reactive, ref} from 'vue';
+import {ElMessage, ElMessageBox} from 'element-plus';
 
-//定义响应式数据
-const payList = ref([])
-const currentPage1 = ref(1)
-const pageSize1 = ref(10)
+//定义分页数据模型
+const pageNum = ref(1);
+const pageSize = ref(10)
+const total = ref(20);
 
 // 获取数据
 // 调用同步获取数据的函数网络请求 await async
@@ -90,6 +111,16 @@ const getAllPay = async function () {
 
 // 调用函数
 getAllPay();
+
+// 定义当前页事件函数
+const handleSizeChange = function (pageSize) {
+  pageSize.value = pageSize;
+}
+
+// 定义页数事件函数
+const handleCurrentChange = function (pageNum) {
+  pageNum.value = pageNum;
+}
 
 // 定义响应式搜索数据
 const searchConditon = ref({
@@ -111,40 +142,6 @@ const dialogTableVisible = ref(false)
 const dialogFormVisible = ref(false)
 const formLabelWidth = '140px'
 
-const form = reactive({
-  name: '',
-  region: '',
-  date1: '',
-  date2: '',
-  delivery: false,
-  type: [],
-  resource: '',
-  desc: '',
-})
-
-const gridData = [
-  {
-    date: '2016-05-02',
-    name: 'John Smith',
-    address: 'No.1518,  Jinshajiang Road, Putuo District',
-  },
-  {
-    date: '2016-05-04',
-    name: 'John Smith',
-    address: 'No.1518,  Jinshajiang Road, Putuo District',
-  },
-  {
-    date: '2016-05-01',
-    name: 'John Smith',
-    address: 'No.1518,  Jinshajiang Road, Putuo District',
-  },
-  {
-    date: '2016-05-03',
-    name: 'John Smith',
-    address: 'No.1518,  Jinshajiang Road, Putuo District',
-  },
-]
-
 //添加数据模型
 const payModel = ref({
   payNo: '',
@@ -156,13 +153,13 @@ const payModel = ref({
 // 添加新增表单校验
 const rules = {
   payNo: [
-    { required: true, message: '请输入支付流水号', trigger: 'blur' },
+    {required: true, message: '请输入支付流水号', trigger: 'blur'},
   ],
   orderNo: [
-    { required: true, message: '请输入订单流水号', trigger: 'blur' },
+    {required: true, message: '请输入订单流水号', trigger: 'blur'},
   ],
   amount: [
-    { required: true, message: '请输入交易金额', trigger: 'blur' },
+    {required: true, message: '请输入交易金额', trigger: 'blur'},
   ]
 }
 
@@ -182,7 +179,8 @@ const title = ref('')
 
 // 增加或修改展示弹框
 const addOrEditPayDialog = function (row) {
-  dialogFormVisible.value = true; title.value = '编辑支付信息';
+  dialogFormVisible.value = true;
+  title.value = '编辑支付信息';
   payModel.payNo = row.payNo;
   payModel.orderNo = row.orderNo;
 }
@@ -190,13 +188,13 @@ const addOrEditPayDialog = function (row) {
 // 删除支付信息函数
 const delectPayById = async function (row) {
   ElMessageBox.confirm(
-    '确定要删除么?',
-    '温馨提示!',
-    {
-      confirmButtonText: '确认',
-      cancelButtonText: '取消',
-      type: 'warning',
-    }
+      '确定要删除么?',
+      '温馨提示!',
+      {
+        confirmButtonText: '确认',
+        cancelButtonText: '取消',
+        type: 'warning',
+      }
   ).then(() => {
     // 调用删除接口
     let result = payServiceDelete(row.id);

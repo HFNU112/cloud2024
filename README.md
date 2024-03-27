@@ -220,9 +220,27 @@ Hystrix Status: https://github.com/Netflix/Hystrix/blob/master/README.md
 
 +  断路器：用于处理生产故障
 
-Resilience4J官网：https://spring.io/projects/spring-cloud-circuitbreaker#overview
+断路器Circuit Breaker的实现Resilience4J官网：https://spring.io/projects/spring-cloud-circuitbreaker#overview
 
 resilience4j源码：https://github.com/resilience4j/resilience4j
+
+resilience4j是什么：https://github.com/resilience4j/resilience4j?tab=readme-ov-file#introduction
+
+resilience4j-Circuitbreaker配置API和参数：https://resilience4j.readme.io/docs/circuitbreaker
+
+
+
+> 常见的断路器在应用中的问题：
+> 1、项目的稳定性方案有哪些？如何解决和优化？
+
+
+resilience4j-ratelimiter：
+
+
+resilience4j-bulkhead：
+
+
+
 
 
 

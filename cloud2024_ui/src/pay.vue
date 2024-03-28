@@ -31,22 +31,22 @@
     <br/>
 
     <br/>
-    <el-form :model="form" label-width="auto" style="max-width: 300px">
-      <el-form-item label="支付流水号:">
-        <el-input v-model="form.name"/>
-      </el-form-item>
-      <el-form-item label="创建时间：">
-        <el-col :span="11">
-          <el-date-picker v-model="form.date1" type="date" placeholder="开始日期" style="width: 200%"/>
-        </el-col>
-        <el-col :span="2" class="text-center">
-          <span class="text-gray-500"> - </span>
-        </el-col>
-        <el-col :span="11">
-          <el-date-picker v-model="form.date2" type="date" placeholder="结束日期" style="width: 200%"/>
-        </el-col>
-      </el-form-item>
-    </el-form>
+<!--    <el-form :model="form" label-width="auto" style="max-width: 300px">-->
+<!--      <el-form-item label="支付流水号:">-->
+<!--        <el-input v-model="form.payNo"/>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item label="创建时间：">-->
+<!--        <el-col :span="11">-->
+<!--          <el-date-picker v-model="form.date1" type="date" placeholder="开始日期" style="width: 200%"/>-->
+<!--        </el-col>-->
+<!--        <el-col :span="2" class="text-center">-->
+<!--          <span class="text-gray-500"> - </span>-->
+<!--        </el-col>-->
+<!--        <el-col :span="11">-->
+<!--          <el-date-picker v-model="form.date2" type="date" placeholder="结束日期" style="width: 200%"/>-->
+<!--        </el-col>-->
+<!--      </el-form-item>-->
+<!--    </el-form>-->
 
     <el-table :data="payList.data" border style="width: 100%">
       <el-table-column prop="createTime" label="创建时间" width="200"></el-table-column>
@@ -102,6 +102,16 @@ import {ElMessage, ElMessageBox} from 'element-plus';
 const pageNum = ref(1);
 const pageSize = ref(10)
 const total = ref(20);
+
+const payList = ref([
+    {
+        "createTime":"",
+        "payNo":"",
+        "orderNo":"",
+        "userId":"",
+        "amount":"",
+    }
+])
 
 // 获取数据
 // 调用同步获取数据的函数网络请求 await async

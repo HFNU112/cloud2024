@@ -228,8 +228,6 @@ resilience4j是什么：https://github.com/resilience4j/resilience4j?tab=readme-
 
 resilience4j-Circuitbreaker配置API和参数：https://resilience4j.readme.io/docs/circuitbreaker
 
-
-
 > 常见的断路器在应用中的问题：
 > 1、项目的稳定性方案有哪些？如何解决和优化？
 
@@ -237,7 +235,11 @@ resilience4j-Circuitbreaker配置API和参数：https://resilience4j.readme.io/d
 resilience4j-ratelimiter：
 
 
-resilience4j-bulkhead：
+resilience4j-bulkhead配置参数：https://resilience4j.readme.io/docs/bulkhead
+
+SemaphoreBulkhead信号量舱壁：当信号量空闲时，进入系统请求直接获取信号量执行业务处理；当信号量被占用时，请求进图阻塞状态，系统就会拒绝这些请求。
+
+FixedThreadPoolBulkhead固定线程池舱壁：
 
 
 

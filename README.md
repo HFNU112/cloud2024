@@ -232,15 +232,29 @@ resilience4j-Circuitbreaker配置API和参数：https://resilience4j.readme.io/d
 > 1、项目的稳定性方案有哪些？如何解决和优化？
 
 
-resilience4j-ratelimiter：
+resilience4j-ratelimiter参数配置：https://resilience4j.readme.io/docs/ratelimiter
 
+常见的限流算法：
+
+> 漏桶算法(Leaky bucket)
+> 令牌桶算法(Token bucket)
+> 滚动时间窗(tumbling time window)
+> 滑动时间窗口（sliding time window）
 
 resilience4j-bulkhead配置参数：https://resilience4j.readme.io/docs/bulkhead
 
 SemaphoreBulkhead信号量舱壁：当信号量空闲时，进入系统请求直接获取信号量执行业务处理；当信号量被占用时，请求进图阻塞状态，系统就会拒绝这些请求。
 
-FixedThreadPoolBulkhead固定线程池舱壁：
+FixedThreadPoolBulkhead固定线程池舱壁：用户限制并发执行次数，当线程池存在空闲时，进入系统的请求直接进入线程池开启线程或使用空闲线程处理请求。
+线程池无空闲时，接下来请求进入等待队列，队列满了，请求就直接被拒绝。
 
+> 分布式链路追踪
+
+Spring Cloud Sleuth官网：https://github.com/spring-cloud/spring-cloud-sleuth 维护中
+
+Micrometer使用说明: https://docs.micrometer.io/micrometer/reference/overview.html
+
+Zipkin安装：https://zipkin.io/pages/quickstart.html
 
 
 

@@ -256,6 +256,13 @@ Micrometer使用说明: https://docs.micrometer.io/micrometer/reference/overview
 
 Zipkin安装：https://zipkin.io/pages/quickstart.html
 
+> 网关
+
+gateway官网：https://docs.spring.io/spring-cloud-gateway/reference/index.html
+
+gateway的特性文档：https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway/glossary.html
+
+
 
 
 

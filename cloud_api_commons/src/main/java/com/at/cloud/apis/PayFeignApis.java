@@ -30,4 +30,6 @@ public interface PayFeignApis {
     @GetMapping("/provider/pay/checkHealth")
     public String checkHealthConsul();
 
+    @GetMapping("/pay/micrometer/{id}")
+    public ResultData<String> checkMicrometerHealth(@PathVariable(value = "id") Integer id);
 }

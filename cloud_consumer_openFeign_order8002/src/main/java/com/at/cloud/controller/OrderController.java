@@ -70,4 +70,8 @@ public class OrderController {
         return ResultData.success(payFeignApis.checkHealthConsul());
     }
 
+    @GetMapping("/micrometer/{id}")
+    public ResultData<String> checkMicrometerHealth(@PathVariable(value = "id") Integer id) {
+        return payFeignApis.checkMicrometerHealth(id);
+    }
 }

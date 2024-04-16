@@ -9,7 +9,7 @@ docker pull openzipkin/zipkin:latest
 ```
 
 ```json
-docker images -a
+docker images -aclc
 ```
 
 运行

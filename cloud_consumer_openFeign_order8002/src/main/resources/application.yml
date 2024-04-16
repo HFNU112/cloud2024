@@ -34,3 +34,11 @@ spring:
 logging:
   level:
     com.at.cloud.apis.PayFeignApis: debug  # 记录器的名称是用于创建 Feign 客户端的接口的完整类名
+# ====================zipkin=====================
+management:
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans  # 默认是localhost:9411
+  tracing:
+    sampling:
+      probability: 1.0 #采样率默认为0.1(0.1就是10次只能有一次被记录下来)，值越大收集越及时。采用范围：0.0 - 1.0

@@ -262,6 +262,7 @@ gateway官网：https://docs.spring.io/spring-cloud-gateway/reference/index.html
 
 gateway的特性文档：https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway/glossary.html
 
+gateway网关的路由映射
 
 
 

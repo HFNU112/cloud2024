@@ -21,7 +21,7 @@ mybatis:
     map-underscore-to-camel-case: true
 logging:
   level:
-    com.at.cloud: debug
+    com.atguigu.cloud: debug
 # ====================zipkin=====================
 management:
   zipkin:

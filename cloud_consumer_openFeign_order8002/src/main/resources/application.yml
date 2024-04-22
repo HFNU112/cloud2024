@@ -33,7 +33,7 @@ spring:
           enabled: true
 logging:
   level:
-    com.at.cloud.apis.PayFeignApis: debug  # 记录器的名称是用于创建 Feign 客户端的接口的完整类名
+    com.atguigu.cloud.apis.PayFeignApis: debug  # 记录器的名称是用于创建 Feign 客户端的接口的完整类名
 # ====================zipkin=====================
 management:
   zipkin:

@@ -12,4 +12,4 @@ spring:
         prefer-ip-address: true  # 优先使用IP注册
 logging:
   level:
-    com.at.cloud: debug
+    com.atguigu.cloud: debug

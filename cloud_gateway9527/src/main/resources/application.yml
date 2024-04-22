@@ -5,9 +5,9 @@ spring:
     name: cloud-gateway
   cloud:
     consul:
-      host: 127.0.0.1   # consul地址
-#      host: 192.168.241.128   # consul地址
-      port: 8500       # consul端口 默认：8500
+      host: 127.0.0.1  # consul地址
+#      host: 192.168.241.128  # consul地址
+      port: 8500      # consul端口 默认：8500
       discovery:
         prefer-ip-address: true
-        service-name: ${spring.application.name}  # 注册服务名称
+        service-name: ${spring.application.name}

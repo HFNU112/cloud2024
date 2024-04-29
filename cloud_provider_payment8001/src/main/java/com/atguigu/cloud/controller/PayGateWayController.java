@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author: shunpeng.hu
- * @date: 2024/4/22 15:05
+ * date: 2024/4/22 15:05
  */
 @RestController
 public class PayGateWayController {
@@ -19,6 +19,9 @@ public class PayGateWayController {
     @Resource
     private IPayService payService;
 
+    /**
+     * 对外使用暴漏网关端口调用CRUD接口
+     */
     @GetMapping("/provider/pay/gateway/info")
     public ResultData<String> checkHealthGatewayInfo() {
         return ResultData.success("gateway info test：" + IdUtil.randomUUID());

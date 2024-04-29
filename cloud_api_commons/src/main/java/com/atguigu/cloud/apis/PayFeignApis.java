@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: shunpeng.hu
- * @date: 2024/3/21 17:30
+ * date: 2024/3/21 17:30
  */
 @FeignClient(value = "payment-service")
 public interface PayFeignApis {
@@ -32,4 +32,10 @@ public interface PayFeignApis {
 
     @GetMapping("/pay/micrometer/{id}")
     public ResultData<String> checkMicrometerHealth(@PathVariable(value = "id") Integer id);
+
+    @GetMapping("/provider/pay/gateway/selectOne/{id}")
+    public ResultData getById(@PathVariable(value = "id") Integer id);
+
+    @GetMapping("/provider/pay/gateway/info")
+    public ResultData<String> checkHealthGatewayInfo();
 }

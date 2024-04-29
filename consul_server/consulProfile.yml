@@ -1,5 +1,0 @@
-atguigu:
-  info: welcome to consul world dev config version = 1
-logging:
-  pattern:
-    dateformat: yyyy-MM-dd HH:mm:ss.SSS

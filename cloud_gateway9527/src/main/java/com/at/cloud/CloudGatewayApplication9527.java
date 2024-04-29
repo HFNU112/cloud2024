@@ -6,7 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author: shunpeng.hu
- * @date: 2024/4/22 14:45
+ * date: 2024/4/22 14:45
  */
 @SpringBootApplication
 @EnableDiscoveryClient //服务注册和发现

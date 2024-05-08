@@ -262,6 +262,12 @@ gateway官网：https://docs.spring.io/spring-cloud-gateway/reference/index.html
 
 gateway的特性文档：https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway/glossary.html
 
+1、Route
+
+2、Predicate
+
+3、Filter
+
 gateway网关的路由映射: https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway/configuration.html
 
 

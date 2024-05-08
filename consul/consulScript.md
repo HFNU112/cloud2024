@@ -40,3 +40,9 @@ hashicorp/consul:latest agent \
 -ui \
 -client=0.0.0.0
 ```
+
+进入consul容器
+
+```json
+docker exec -it consul /bin/sh
+```

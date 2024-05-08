@@ -39,3 +39,13 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### 路由的理解和用法
+
++ 1、安装路由
+
+```json
+npm install vue-router@4
+```
+
++ 2、创建路由器

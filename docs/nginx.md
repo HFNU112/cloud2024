@@ -24,5 +24,7 @@ docker run \
 --name myNginx \
 -p 8080:80 \
 -v html:/var/lib/docker/volumes/html \
+-v conf:/var/lib/docker/volumes/conf \
+-v logs:/var/lib/docker/volumes/logs \
 nginx
 ```

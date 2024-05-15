@@ -262,9 +262,10 @@ gateway官网：https://docs.spring.io/spring-cloud-gateway/reference/index.html
 
 gateway的特性文档：https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway/glossary.html
 
-1、Route
+1、Route: 动态获取服务的URI
 
-2、Predicate
+2、Predicate: https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway/request-predicates-factories.html
+
 
 3、Filter
 

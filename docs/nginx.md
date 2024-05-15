@@ -16,15 +16,24 @@ docker volume create html
 docker volume inspect html
 ```
 
+创建文件夹以及配置文件
+```json
+mkdir -p /home/hu-sp/nginx/html
+mkdir -p /home/hu-sp/nginx/conf/conf.d ; touch nginx.conf
+mkdir -p /home/hu-sp/nginx/conf ; touch default.conf
+mkdir -p /home/hu-sp/nginx/log
+```
+
 ## 创建启动nginx容器
 
 ```json
 docker run \
 -d \
---name myNginx \
+--name nginx \
 -p 8080:80 \
--v html:/var/lib/docker/volumes/html \
--v conf:/var/lib/docker/volumes/conf \
--v logs:/var/lib/docker/volumes/logs \
+-v /home/hu-sp/nginx/html:/usr/share/nginx/html \
+-v /home/hu-sp/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
+-v /home/hu-sp/nginx/conf/conf.d/:/etc/nginx/conf.d/ \  # conf.d/文件夹下的文件 default.conf
+-v /home/hu-sp/nginx/log:/var/log/nginx \
 nginx
 ```

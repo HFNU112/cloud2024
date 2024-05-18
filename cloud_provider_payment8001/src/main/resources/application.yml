@@ -4,7 +4,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.216.129:3306/cloud2024?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://192.168.241.130:3306/cloud2024?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
     username: root
     password: 123456
     servlet:
@@ -27,7 +27,7 @@ management:
   zipkin:
     tracing:
 #      endpoint: http://localhost:9411/api/v2/spans  # 默认是localhost:9411
-      endpoint: http://192.168.216.129:9411/api/v2/spans  # 默认是localhost:9411
+      endpoint: http://192.168.241.130:9411/api/v2/spans  # 默认是localhost:9411
   tracing:
     sampling:
       probability: 1.0 #采样率默认为0.1(0.1就是10次只能有一次被记录下来)，值越大收集越及时。

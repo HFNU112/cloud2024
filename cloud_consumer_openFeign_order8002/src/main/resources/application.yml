@@ -6,7 +6,7 @@ spring:
   cloud:
     consul:
 #      host: 127.0.0.1 # consul地址
-      host: 192.168.216.129  # consul地址
+      host: 192.168.241.130  # consul地址
       port: 8500      # consul端口 默认：8500
       discovery:
         prefer-ip-address: true  # 优先使用IP注册
@@ -40,7 +40,7 @@ logging:
 management:
   zipkin:
     tracing:
-      endpoint: http://192.168.216.129:9411/api/v2/spans  # 默认是localhost:9411
+      endpoint: http://192.168.241.130:9411/api/v2/spans  # 默认是localhost:9411
   tracing:
     sampling:
       probability: 1.0 #采样率默认为0.1(0.1就是10次只能有一次被记录下来)，值越大收集越及时。采用范围：0.0 - 1.0

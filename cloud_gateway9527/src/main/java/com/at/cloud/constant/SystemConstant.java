@@ -7,4 +7,6 @@ package com.at.cloud.constant;
 public class SystemConstant {
 
     public static final String GATEWAY_BASE_URL = "http://localhost:9527";
+
+    public static final String BEGIN_VISIT_TIME = "begin_visit_time";
 }

@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
  * @date 2024/6/6 16:45
  */
 @Slf4j
-@Component
+//@Component
 public class MyGlobalFilter implements GlobalFilter, Ordered {
 
     @Override
@@ -22,6 +22,7 @@ public class MyGlobalFilter implements GlobalFilter, Ordered {
         exchange.getAttributes().put(SystemConstant.BEGIN_VISIT_TIME, System.currentTimeMillis());
 
         return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+            log.info("进入自定义网关全局过滤器MyGlobalFilter, status");
             Long beginVisitTime = exchange.getAttribute(SystemConstant.BEGIN_VISIT_TIME);
             if (beginVisitTime != null) {
                 log.info("访问接口主机: " + exchange.getRequest().getURI().getHost());

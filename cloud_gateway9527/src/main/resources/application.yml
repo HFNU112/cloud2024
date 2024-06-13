@@ -47,7 +47,7 @@ spring:
             - AddRequestParameter=X-Request-atValue2, value2
             - RemoveRequestHeader=sec-fetch-site             # RemoveRequestHeader GatewayFilter向下游发送之前删除请求头
             - SetRequestHeader=sec-fetch-mode, Blue-updateByhusp         # 替换（而不是添加）具有给定名称的所有请求头，下游服务将收到的内容
-#            - AddRequestHeadersIfNotPresent=X-Request-atValue1:value1    # 仅在请求头尚不存在时才执行此操作。否则，将发送客户端请求中的原始值。
+            - AddRequestHeadersIfNotPresent=X-Request-atValue1:value1    # 仅在请求头尚不存在时才执行此操作。否则，将发送客户端请求中的原始值。
 # ========================请求参数组（RequestParameter）=============================
 #            - AddRequestParameter=customerId, 9527001                  # AddRequestParameter知道用于匹配路径或主机的 URI 变量
 #            - RemoveResponseHeader=customerName                   # 响应返回到网关客户端之前从响应中删除标头。
@@ -59,4 +59,4 @@ spring:
 #            - PrefixPath=/provider/pay                        # 所有匹配请求路径的前缀
 #            - SetPath=/provider/pay/gateway/{segment}          # 采用路径template参数。它通过允许路径的模板化片段提供了一种简单的方法来操作请求路径
 #            - RedirectTo=302, https://www.baidu.com          # 发送一个带有标头的状态 302Location:https://acme.org来执行重定向
-            - My=atguigu  # 自定义AddRequestHeader知道用于匹配路径或主机的 URI 变量
+#            - My=atguigu  # 自定义GatewayFilterFactory AddRequestHeader知道用于匹配路径或主机的 URI 变量

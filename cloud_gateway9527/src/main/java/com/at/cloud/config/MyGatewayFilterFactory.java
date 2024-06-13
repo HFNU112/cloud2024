@@ -20,7 +20,7 @@ import java.util.List;
  * @date 2024/6/6 17:17
  */
 @Slf4j
-@Component
+//@Component
 public class MyGatewayFilterFactory extends AbstractGatewayFilterFactory<MyGatewayFilterFactory.Config> {
 
     public MyGatewayFilterFactory() {

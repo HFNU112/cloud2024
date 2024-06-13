@@ -271,6 +271,17 @@ gateway的特性文档：https://docs.spring.io/spring-cloud-gateway/reference/s
 
 gateway网关的路由映射: https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway/configuration.html
 
+> Spring-Cloud-Alibaba
+
+官网：https://github.com/alibaba/spring-cloud-alibaba/wiki
+
+依赖版本兼容性：https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
+
+适用说明：https://github.com/alibaba/spring-cloud-alibaba/blob/2023.x/README.md
+
+> Spring-Cloud-Alibaba-Nacos动态服务发现与配置及服务管理平台
+
+官网：https://nacos.io/
 
 
 

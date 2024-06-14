@@ -1,5 +1,6 @@
 package com.at.cloud.controller;
 
+import com.atguigu.cloud.common.ResultData;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +21,9 @@ public class OrderAlibabaController {
     @Value("${service-url.nacos-user-service}")
     private String serverURL;
 
-    @GetMapping("/consumer/pay/nacos/{id}")
-    public String checkPaymentInfo(@PathVariable("id") Integer id)
-    {
-        String result = restTemplate.getForObject(serverURL + "/pay/nacos/" + id, String.class);
-        return result+"\t"+"    我是OrderNacosController8083调用者***********";
+    @GetMapping("/consumer/payment/nacos/{id}")
+    public ResultData<String> checkPaymentInfo(@PathVariable("id") Integer id) {
+        String result = restTemplate.getForObject(serverURL + "/payment/alibaba/nacos/" + id, String.class);
+        return ResultData.success(result + "\t" + "    我是OrderNacosController8083调用者");
     }
 }

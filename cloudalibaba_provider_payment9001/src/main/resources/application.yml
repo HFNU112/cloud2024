@@ -7,4 +7,12 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848 #配置Nacos地址
+#        server-addr: localhost:8848 #配置Nacos地址
+        server-addr: 192.168.216.129:8848 #配置Nacos地址
+        namespace: 3af8d43f-4935-4e8c-a5cf-b67ddb44e7a2
+        group: dev-group
+        username: nacos
+        password: nacos
+logging:
+  level:
+    com.at.cloud: debug

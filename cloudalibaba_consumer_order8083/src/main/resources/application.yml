@@ -1,0 +1,20 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: nacos-order-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.216.129:8848
+        namespace: 3af8d43f-4935-4e8c-a5cf-b67ddb44e7a2
+        username: nacos
+        password: nacos
+        group: dev-group
+#消费者将要去访问的微服务名称(nacos微服务提供者叫什么你写什么)
+service-url:
+  nacos-user-service: http://nacos-payment-provider
+logging:
+  level:
+    com.at.cloud: debug

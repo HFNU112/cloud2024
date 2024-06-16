@@ -4,7 +4,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.216.129:8848 #Nacos服务注册中心地址
+        server-addr: 192.168.241.130:8848 #Nacos服务注册中心地址
         namespace: 3af8d43f-4935-4e8c-a5cf-b67ddb44e7a2
 #        namespace: 6505e42f-a295-4e33-b404-8f1471586242
 #        namespace: 3b491286-74d4-4ba0-81c0-49b04c5b4d2d
@@ -14,7 +14,7 @@ spring:
         username: nacos
         password: nacos
       config:
-        server-addr: 192.168.216.129:8848 #Nacos作为配置中心地址
+        server-addr: 192.168.241.130:8848 #Nacos作为配置中心地址
         namespace: 3af8d43f-4935-4e8c-a5cf-b67ddb44e7a2
 #        namespace: 6505e42f-a295-4e33-b404-8f1471586242
 #        namespace: 3b491286-74d4-4ba0-81c0-49b04c5b4d2d

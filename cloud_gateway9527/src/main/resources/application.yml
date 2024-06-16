@@ -6,7 +6,7 @@ spring:
   cloud:
     consul:
 #      host: 127.0.0.1  # consul地址
-      host: 192.168.241.130  # consul地址
+      host: 192.168.216.129  # consul地址
       port: 8500      # consul端口 默认：8500
       discovery:
         prefer-ip-address: true
@@ -16,21 +16,47 @@ spring:
         - id: payment-router1 # 路由的ID(类似mysql主键ID)，没有固定规则但要求唯一，通常配置服务名
           uri: lb://payment-service  # 匹配后提供服务的路由地址
           predicates:
-            - Path=/provider/pay/gateway/info/**  #  断言，路径相匹配的进行路由
+            - Path=/provider/pay/gateway/selectOne/**  #  断言，路径相匹配的进行路由
         - id: payment-router2 # 路由的ID(类似mysql主键ID)，没有固定规则但要求唯一，通常配置服务名
+          uri: lb://payment-service  # 匹配后提供服务的路由地址
+          predicates:
+            - Path=/provider/pay/gateway/info/**  #  断言，路径相匹配的进行路由
+        - id: payment-router3 # 路由的ID(类似mysql主键ID)，没有固定规则但要求唯一，通常配置服务名
           uri: lb://payment-service
           predicates:
 #            - Cookie=username, hushunpeng   # 路由Cookie谓词工厂,匹配具有给定名称且其值与正则表达式匹配的 cookie
 #            - Header=X-Request-Id, \d+      # 路由Header谓词工厂，X-Request-Id其值与\d+正则表达式匹配
 #            - Host=**.baidu.com              # 路由Host谓词工厂, Ant 样式的模式，以.作为分隔符,此谓词匹配与Host模式匹配的标头,如果请求的Host标头值为www.somehost.org或beta.somehost.org或 ，www.anotherhost.org则此路由匹配
-            - Path=/provider/pay/gateway/** #  路径路由谓词, 此谓词将 URI 模板变量（例如segment，在上例中定义）提取为名称和值的映射
+#            - Path=/provider/pay/gateway/** #  路径路由谓词, 此谓词将 URI 模板变量（例如segment，在上例中定义）提取为名称和值的映射
+            - Path=/provider/pay/gateway/filter/**    # 路径路由谓词, 此谓词将 URI 模板变量（例如segment，在上例中定义）提取为名称和值的映射 测试定义filter
+#            - Path=/gateway/filter    # 路径路由谓词, 此谓词将 URI 模板变量（例如segment，在上例中定义）提取为名称和值的映射 测试定义filter
+#            - Path=/XYZ/abc/{segment}    # 路径路由谓词, 此谓词将 URI 模板变量（例如segment，在上例中定义）提取为名称和值的映射 测试定义filter
 #            - Query=username, \d+           # 路由Query谓词工厂,如果请求包含一个red查询参数，并且该参数的值与gree.正则表达式匹配，则前面的路由匹配，因此green和greet将匹配 eg:username=123
-            - After=2024-05-18T19:00:00.666989600+08:00[Asia/Shanghai] # 路由After谓词工厂,匹配指定日期时间之后发生的请求
-#            - Before=2024-05-14T16:20:00.666989600+08:00[Asia/Shanghai] # 路由Before谓词工厂，匹配在指定的日期之前发生的请求
+#            - After=2024-05-18T19:00:00.666989600+08:00[Asia/Shanghai] # 路由After谓词工厂,匹配指定日期时间之后发生的请求
+            - Before=2024-06-14T16:20:00.666989600+08:00[Asia/Shanghai] # 路由Before谓词工厂，匹配在指定的日期之前发生的请求
 #            - Between=2024-05-14T16:00:00.666989600+08:00[Asia/Shanghai], 2024-05-14T17:00:00.666989600+08:00[Asia/Shanghai] # 路由Between谓词工厂,匹配之前datetime1和之后发生的请求datetime2
 #            - RemoteAddr=192.168.216.1/24     # 路由RemoteAddr谓词工厂,CIDR 表示法 eg:192.168.0.1/16（其中192.168.0.1是 IP 地址，16是子网掩码）
 #            - Method=POST                 # 路由Method谓词工厂, 要匹配的 HTTP 方法
-            - My=vip                 # 自定义路由谓词工厂, 小bug: 配置注解不生效？
+#            - My=vip                 # 自定义路由谓词工厂, 小bug: 配置注解不生效？
 #            - name: My               # 自定义路由谓词工厂, 完整自定义配置路由规则
 #              args:
 #                userType: vip
+          filters:                 # GatewayFilter工厂
+# ==========================请求头组（RequestHeader）================================
+            - AddRequestHeader=X-Request-atValue1, value1    # AddRequestHeader知道用于匹配路径或主机的 URI 变量 测试路径:http://localhost:9527/provider/pay/gateway/filter
+            - AddRequestParameter=X-Request-atValue2, value2
+            - RemoveRequestHeader=sec-fetch-site             # RemoveRequestHeader GatewayFilter向下游发送之前删除请求头
+            - SetRequestHeader=sec-fetch-mode, Blue-updateByhusp         # 替换（而不是添加）具有给定名称的所有请求头，下游服务将收到的内容
+            - AddRequestHeadersIfNotPresent=X-Request-atValue1:value1    # 仅在请求头尚不存在时才执行此操作。否则，将发送客户端请求中的原始值。
+# ========================请求参数组（RequestParameter）=============================
+#            - AddRequestParameter=customerId, 9527001                  # AddRequestParameter知道用于匹配路径或主机的 URI 变量
+#            - RemoveResponseHeader=customerName                   # 响应返回到网关客户端之前从响应中删除标头。
+# ========================响应组（ResponseHeader）================================
+#            - AddResponseHeader=X-Response-at, BlueResponse             # 请求头添加到所有匹配请求的下游响应标头中
+#            - SetResponseHeader=Date, 2024-12-01                   # 替换（而不是添加）具有给定名称的所有响应头
+#            - RemoveResponseHeader=Content-Type                    # 响应返回到网关客户端之前从响应中删除响应头
+# ======================== 前缀路径组(PrefixPath)================================
+#            - PrefixPath=/provider/pay                        # 所有匹配请求路径的前缀
+#            - SetPath=/provider/pay/gateway/{segment}          # 采用路径template参数。它通过允许路径的模板化片段提供了一种简单的方法来操作请求路径
+#            - RedirectTo=302, https://www.baidu.com          # 发送一个带有标头的状态 302Location:https://acme.org来执行重定向
+#            - My=atguigu  # 自定义GatewayFilterFactory AddRequestHeader知道用于匹配路径或主机的 URI 变量
